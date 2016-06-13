@@ -1,0 +1,12 @@
+{
+  "_comment": "Build with `packer build -var-file=fedora23.json fedora.json`",
+  "vm_name": "fedora23",
+  "cpus": "2",
+  "disk_size": "8192",
+  "iso_checksum": "32e0a15a1c71d0e2fd36a0af5b67a3b3af82976d2dfca0aefcb90d42f2ae6844",
+  "iso_checksum_type": "sha256",
+  "iso_name": "Fedora-Server-netinst-x86_64-23.iso",
+  "iso_url": "http://fedora.mirror.lstn.net/releases/23/Server/x86_64/iso/Fedora-Server-netinst-x86_64-23.iso",
+  "kickstart": "ks-fedora23.cfg",
+  "memory": "512"
+}
