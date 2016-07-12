@@ -17,9 +17,9 @@ clean:
 	@$(MAKE) clean --directory=ubuntu.boxcutter
 
 fedora:
-	@cd fedora
+	@cd fedora;\
 	packer build -only=${TYPE}-iso -var-file=fedora${VER}.json fedora.json
 
 ubuntu:
-	@cd ubuntu
+	@cd ubuntu;\
 	packer build -only=${TYPE}-iso -var-file=ubuntu${VER}.json ubuntu.json
