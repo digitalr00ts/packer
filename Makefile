@@ -16,6 +16,9 @@ clean:
 	@$(MAKE) clean --directory=fedora.boxcutter
 	@$(MAKE) clean --directory=ubuntu.boxcutter
 
+validate:
+	@for dir in {'fedora','ubuntu'}; do cd $dir; for tpl in $(find . -name \*.json); do echo "[ $tpl ]"; packer validate "$tpl"; echo; done; cd -; done
+
 fedora:
 	@cd fedora;\
 	packer build -only=${TYPE}-iso -var-file=fedora${VER}.json fedora.json
