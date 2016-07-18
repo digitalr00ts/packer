@@ -87,7 +87,7 @@
       "ssh_wait_timeout": "10000s",
       "type": "parallels-iso",
       "vm_name": "{{ user `vm_name` }}"
-    }
+    },
     {
       "accelerator": "kvm",
       "boot_command": [
@@ -96,8 +96,6 @@
       "disk_compression": "true",
       "disk_size": "{{ user `disk_size` }}",
       "format": "qcow2",
-      "guest_additions_path": "VBoxGuestAdditions_{{.Version}}.iso",
-      "guest_os_type": "{{ user `virtualbox_guest_os_type` }}",
       "headless": "{{ user `headless` }}",
       "http_directory": "http",
       "iso_checksum": "{{ user `iso_checksum` }}",
@@ -116,7 +114,7 @@
       "ssh_wait_timeout": "10000s",
       "type": "qemu",
       "vm_name": "{{ user `vm_name` }}"
-    },
+    }
   ],
   "post-processors": [
     {
@@ -148,7 +146,7 @@
         "script/vagrant.sh",
         "script/virtualbox.sh",
         "script/parallels.sh",
-        "script.custom/qemu.sh"
+        "script.custom/qemu.sh",
         "script/cmtool.sh",
         "script/cleanup.sh"
       ],
