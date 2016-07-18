@@ -1,6 +1,6 @@
 #!/bin/bash -eux
 
-if [[ $PACKER_BUILDER_TYPE =~ qemu]]; then
+if [[ $PACKER_BUILDER_TYPE =~ qemu ]]; then
     echo "==> Installing QEMU guest additions"
     # Assume that we've installed all the prerequisites:
     # kernel-headers-$(uname -r) kernel-devel-$(uname -r) gcc make perl
