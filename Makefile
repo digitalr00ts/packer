@@ -14,7 +14,9 @@ submodules-reset:
 	$(MAKE) submodules
 
 clean:
+	@$(MAKE) clean --directory=fedora
 	@$(MAKE) clean --directory=fedora.boxcutter
+	@$(MAKE) clean --directory=ubuntu
 	@$(MAKE) clean --directory=ubuntu.boxcutter
 
 validate:
