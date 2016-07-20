@@ -1,7 +1,8 @@
 TYPE ?= virtualbox
 VER ?= 1404
 
-.PHONY: fedora ubuntu submodules submodules-reset clean
+.PHONY: fedora ubuntu submodules submodules-reset clean validate
+
 .DEFAULT_GOAL = ubuntu
 
 submodules:
@@ -17,7 +18,16 @@ clean:
 	@$(MAKE) clean --directory=ubuntu.boxcutter
 
 validate:
-	@for dir in {'fedora','ubuntu'}; do cd $dir; for tpl in $(find . -name \*.json); do echo "[ $tpl ]"; packer validate "$tpl"; echo; done; cd -; done
+	@for dir in {'fedora','ubuntu'}; do \
+	  cd $$dir 1>/dev/null; \
+	  pwd; \
+	  for tpl in $$(find . -name \*.json); do \
+	    echo "[ $$tpl ]"; \
+	    packer validate "$$tpl"; \
+	    echo; \
+	  done; \
+	  cd - 1>/dev/null; \
+	done
 
 fedora:
 	@cd fedora;\
