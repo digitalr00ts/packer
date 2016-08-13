@@ -1,9 +1,11 @@
-TYPE ?= virtualbox
+TYPE ?= virtualbox-iso
 VER ?= 1404
+DIST ?= ubuntu
+USER ?= DIGITALR00TS
 
 .PHONY: fedora ubuntu submodules submodules-reset clean validate
 
-.DEFAULT_GOAL = ubuntu
+.DEFAULT_GOAL = build
 
 submodules:
 	git submodule init
@@ -38,3 +40,13 @@ fedora:
 ubuntu:
 	@cd ubuntu;\
 	packer build -only=${TYPE}-iso -var-file=ubuntu${VER}.json ubuntu.json
+
+build:
+	#@ATLAS_TOKEN="$(cat api.token)" ;
+	@cd ${DIST};\
+	packer build -only=${TYPE} -var-file=${DIST}${VER}.json ${DIST}.json
+
+push:
+	#DOES NOT WORK
+	@cd ${DIST};\
+	packer push -token=$(cat ../api.token) -name=${USER}/${DIST}${VER} -var-file=${DIST}${VER}.json ${DIST}.json
