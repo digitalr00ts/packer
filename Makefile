@@ -42,11 +42,10 @@ ubuntu:
 	packer build -only=${TYPE}-iso -var-file=ubuntu${VER}.json ubuntu.json
 
 build:
-	#@ATLAS_TOKEN="$(cat api.token)" ;
+	@declare -x ATLAS_TOKEN="$$(cat .atlas_token)" ;\
 	@cd ${DIST};\
 	packer build -only=${TYPE} -var-file=${DIST}${VER}.json ${DIST}.json
 
 push:
-	#DOES NOT WORK
 	@cd ${DIST};\
-	packer push -token=$(cat ../api.token) -name=${USER}/${DIST}${VER} -var-file=${DIST}${VER}.json ${DIST}.json
+	packer push -token=$$(cat ../.atlas_token) -name=${USER}/${DIST}${VER} -var-file=${DIST}${VER}.json ${DIST}.json

@@ -12,3 +12,5 @@ Makefile.local
 
 .DS_Store
 .bundle/
+
+.atlas_token
