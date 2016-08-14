@@ -43,7 +43,7 @@ ubuntu:
 
 build:
 	@declare -x ATLAS_TOKEN="$$(cat .atlas_token)" ;\
-	@cd ${DIST};\
+	cd ${DIST};\
 	packer build -only=${TYPE} -var-file=${DIST}${VER}.json ${DIST}.json
 
 push:
