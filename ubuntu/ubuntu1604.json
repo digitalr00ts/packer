@@ -1,5 +1,5 @@
 {
-  "_comment": "Build with `packer build -var-file=ubuntu1404.json ubuntu.json`",
+  "_comment": "Build with `packer build -var-file=ubuntu1604.json ubuntu.json`",
   "vm_name": "ubuntu1604",
   "cpus": "2",
   "disk_size": "8192",
