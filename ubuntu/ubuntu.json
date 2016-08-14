@@ -185,7 +185,7 @@
     }
   ],
   "post-processors": [
-    {
+    [{
       "keep_input_artifact": false,
       "output": "box/{{.Provider}}/{{user `vm_name`}}-{{user `cm`}}{{user `cm_version`}}-{{user `version`}}.box",
       "type": "vagrant",
@@ -193,14 +193,26 @@
     },
     {
       "type": "atlas",
+      "only": ["virtualbox-iso"],
+      "artifact": "DIGITALR00TS/{{user `vm_name`}}",
+      "artifact_type": "vagrant.box",
+      "metadata": {
+        "provider": "{{build_type}}",
+        "version": "{{user `version`}}",
+        "created_at": "{{timestamp}}"
+      }
+    },
+    {
+      "type": "atlas",
       "only": ["virtualbox-iso","qemu"],
       "artifact": "DIGITALR00TS/{{user `vm_name`}}",
       "artifact_type": "vagrant.box",
       "metadata": {
+        "provider": "libvirt",
         "version": "{{user `version`}}",
         "created_at": "{{timestamp}}"
       }
-    }
+    }]
   ],
   "provisioners": [
     {
