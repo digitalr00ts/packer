@@ -9,6 +9,9 @@ if [[ $PACKER_BUILDER_TYPE =~ qemu ]]; then
     if [ "${PKG_MGR}" == "dnf" ]; then
         #${PKG_MGR} -y install kernel-headers-$(uname -r) kernel-devel-$(uname -r) gcc make perl
         ${PKG_MGR} -y install qemu-guest-agent spice-vdagent
+    elif [ "${PKG_MGR}" == "apt-get" ]; then
+        #${PKG_MGR} -y install kernel-headers-$(uname -r) kernel-devel-$(uname -r) gcc make perl
+        ${PKG_MGR} -y install qemu-guest-agent spice-vdagent
     fi
 
     #echo "==> Removing packages needed for building guest tools"
