@@ -1,4 +1,4 @@
-TYPE ?= virtualbox-iso
+TYPE ?= virtualbox
 VER ?= 1404
 DIST ?= ubuntu
 USER ?= DIGITALR00TS
